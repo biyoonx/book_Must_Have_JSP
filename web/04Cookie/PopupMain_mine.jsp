@@ -28,8 +28,8 @@
 <head>
     <meta charset="UTF-8">
     <title>쿠키를 이용한 팝업 관리 ver 0.1(my version)</title>
-    <link href="PopupMain_0.1_mine.css" rel="stylesheet">
-    <script defer src="PopupMain_0.1_mine.js"></script>
+    <link href="PopupMain_mine.css" rel="stylesheet">
+    <script defer src="PopupMain_mine.js"></script>
 </head>
 <body>
     <h2>팝업 메인 페이지 ver 0.1(my version)</h2>

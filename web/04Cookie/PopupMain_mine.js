@@ -9,11 +9,11 @@ if (closePopup) {
                     window.location.reload();
                 });
         }
-    })
+    });
 }
 
 async function fetchPopupMode(data) {
-    const url = `./PopupCookie.jsp?isPopupMode=${data}`
+    const url = `./PopupCookie_mine.jsp?isPopupMode=${data}`
     const request = {
         method: 'GET',
         headers: {

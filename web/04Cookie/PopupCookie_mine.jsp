@@ -1,18 +1,19 @@
 <%--
   Created by IntelliJ IDEA.
   User: biyoonx
-  Date: 2024-01-18
-  Time: 오전 12:26
+  Date: 2024-01-17
+  Time: 오후 10:42
 --%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
+         pageEncoding="UTF-8"
+         trimDirectiveWhitespaces="true" %>
 
 <%
-    String chkVal = request.getParameter("inactiveToday");
+    String isPopupMode = request.getParameter("isPopupMode");
 
-    if (chkVal != null && chkVal.equals("1")) {
-        Cookie cookie = new Cookie("PopupClose", "off");
+    if (isPopupMode != null && !Boolean.parseBoolean(isPopupMode)) {
+        Cookie cookie = new Cookie("isPopupMode", isPopupMode);
         cookie.setPath(request.getContextPath());
         cookie.setMaxAge(60 * 60 * 24);
         response.addCookie(cookie);
