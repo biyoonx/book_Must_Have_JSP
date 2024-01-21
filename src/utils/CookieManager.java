@@ -1,8 +1,8 @@
 package utils;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 public class CookieManager {
     // 명시한 이름, 값, 유지 기간 조건으로 새로운 쿠키 생성
@@ -15,7 +15,7 @@ public class CookieManager {
 
     // 명시한 이름의 쿠키를 찾아 그 값을 반환
     public static String readCookie(HttpServletRequest request, String cName) {
-        String cookieValue = null;
+        String cookieValue = "";
 
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
@@ -33,6 +33,6 @@ public class CookieManager {
 
     // 명시한 이름의 쿠키 삭제
     public static void deleteCookie(HttpServletResponse response, String cName) {
-        makeCookie(response, cName, null, 0);
+        makeCookie(response, cName, "", 0);
     }
 }
