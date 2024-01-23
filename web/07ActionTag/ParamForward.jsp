@@ -25,7 +25,6 @@
         <li>특징 : <%= request.getParameter("param3") %></li>
     </ul>
 
-
     <jsp:include page="inc/ParamInclude.jsp">
         <jsp:param name="loc1" value="강원도 영월" />
         <jsp:param name="loc2" value="김삿갓면"/>
