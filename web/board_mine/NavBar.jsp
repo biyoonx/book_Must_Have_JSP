@@ -8,7 +8,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 
-<div>
+<link rel="stylesheet" href="NavBar.css" />
+<div class="nav_bar">
     <ul>
         <%
             if (session.getAttribute("UserId") == null) {
@@ -17,7 +18,8 @@
         <%
             } else {
         %>
-        <li onclick="location.href='Logout.jsp'">로그아웃</li>
+        <li onclick="location.href='LoginForm.jsp'">마이페이지</li>
+        <li onclick="location.href='LogoutProcess.jsp'">로그아웃</li>
         <%
             }
         %>

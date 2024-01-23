@@ -4,10 +4,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Service {
+public class BoardService {
     private DAO dao;
 
-    public Service() {
+    public BoardService() {
         this.dao = new DAO();
     }
 
