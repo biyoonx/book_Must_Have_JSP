@@ -69,6 +69,53 @@ public class BoardDAO extends JDBConnect {
 
         return bbs;
     }
+    
+    // 검색 조건에 맞는 게시물 목록 반환(페이징 기능 지원)
+    public List<BoardDTO> selectListPage(Map<String, Object> map) {
+        List<BoardDTO> bbs = new Vector<BoardDTO>();
+
+        String query = """
+                SELECT * FROM (
+                    SELECT Tb.*, ROWNUM AS rNum FROM (
+                        SELECT * FROM board
+                """;
+
+        // 검색 조건 추가
+        if (map.get("searchWord") != null) {
+            query += String.format(" WHERE %s LIKE '%%%s%%'", map.get("searchField"), map.get("searchWord"));
+        }
+
+        query += """
+                        ORDER BY num DESC
+                    ) Tb
+                ) WHERE rNum BETWEEN ? AND ?
+                """;
+
+        try {
+            pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, map.get("start").toString());
+            pstmt.setString(2, map.get("end").toString());
+
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                BoardDTO dto = new BoardDTO();
+                dto.setNum(rs.getLong("num"));
+                dto.setTitle(rs.getString("title"));
+                dto.setContent(rs.getString("content"));
+                dto.setPostdate(rs.getDate("postdate"));
+                dto.setId(rs.getString("id"));
+                dto.setVisitcount(rs.getLong("visitcount"));
+
+                bbs.add(dto);
+            }
+        } catch (SQLException e) {
+            System.out.println("게시물 조회 중 예외 발생");
+            e.printStackTrace();
+        }
+
+        return bbs;
+    }
 
     // DAO에 글쓰기 메서드 추가
     public int insertWrite(BoardDTO dto) {
