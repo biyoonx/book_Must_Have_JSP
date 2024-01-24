@@ -5,6 +5,7 @@ a {
 .nav_bar {
     border: 2px solid #484848;
     margin: 1rem auto;
+    padding: 0;
 }
 .nav_bar ul {
     display: flex;
@@ -20,5 +21,5 @@ a {
 }
 .nav_bar li:hover {
     font-weight: bold;
-    color: dodgerblue;
+    color: black;
 }

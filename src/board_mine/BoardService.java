@@ -24,8 +24,6 @@ public class BoardService {
             dao.rs.next();
             totalCount = dao.rs.getLong(1);
 
-            dao.close();
-
             System.out.printf("전체 게시글 수 조회 완료 : %d개\n", totalCount);
         } catch (SQLException e) {
             System.out.println("전체 게시글 수 조회 중 에러 발생");
@@ -38,7 +36,8 @@ public class BoardService {
     public List<PostDTO> getAllList(String searchField, String searchKeyword) {
         String sql = """
                 SELECT B.num, B.title, B.content, B.id, B.postdate, B.visitcount, M.name
-                FROM board B INNER JOIN member M
+                FROM board B
+                  INNER JOIN member M ON (B.id = M.id)
                 """;
         if (searchKeyword != null) {
             sql += String.format(" WHERE %s LIKE '%%%s%%'", searchField, searchKeyword);
@@ -63,8 +62,6 @@ public class BoardService {
                 posts.add(post);
             }
 
-            dao.close();
-
             System.out.printf("전체 게시글 조회 완료 : %d개\n", posts.size());
         } catch (SQLException e) {
             System.out.println("전체 게시글 조회하는 중에 에러 발생");
@@ -83,12 +80,10 @@ public class BoardService {
         int result = 0;
         try {
             dao.pstmt = dao.conn.prepareStatement(sql);
-            dao.pstmt.setLong(1, post.getNum());
-            dao.pstmt.setString(2, post.getTitle());
-            dao.pstmt.setString(3, post.getContent());
+            dao.pstmt.setString(1, post.getTitle());
+            dao.pstmt.setString(2, post.getContent());
+            dao.pstmt.setString(3, post.getId());
             result = dao.pstmt.executeUpdate();
-
-            dao.close();
 
             System.out.printf("게시글 등록(INSERT) 완료 : %d행 적용\n", result);
         } catch (SQLException e) {
@@ -101,8 +96,9 @@ public class BoardService {
     public PostDTO getPostDetail(long num) {
         String sql = """
                 SELECT B.num, B.title, B.content, B.id, B.postdate, B.visitcount, M.name
-                FROM board B INNER JOIN member M
-                WHERE num = ?
+                  FROM board B
+                    INNER JOIN member M ON (B.id = M.id)
+                  WHERE num = ?
                 """;
 
         PostDTO post = null;
@@ -125,8 +121,6 @@ public class BoardService {
             } else {
                 System.out.printf("조회할 게시글 없음 : %d", num);
             }
-
-            dao.close();
         } catch (SQLException e) {
             System.out.println("게시글 상세 조회 중에 에러 발생");
             e.printStackTrace();
@@ -145,8 +139,6 @@ public class BoardService {
             dao.pstmt = dao.conn.prepareStatement(sql);
             dao.pstmt.setLong(1, num);
             int result = dao.pstmt.executeUpdate();
-
-            dao.close();
 
             System.out.printf("조회수 카운트업 완료 : %d행 적용\n", result);
         } catch (SQLException e) {
@@ -171,8 +163,6 @@ public class BoardService {
             dao.pstmt.setLong(3, post.getNum());
             result = dao.pstmt.executeUpdate();
 
-            dao.close();
-
             System.out.printf("게시글 수정 등록 완료 : %d행 적용\n", result);
         } catch (SQLException e) {
             System.out.println("게시글 수정 등록(UPDATE) 중 에러 발생");
@@ -190,13 +180,15 @@ public class BoardService {
             dao.pstmt.setLong(1, num);
             result = dao.pstmt.executeUpdate();
 
-            dao.close();
-
             System.out.printf("게시글 삭제 완료 : %d행 적용\n", result);
         } catch (SQLException e) {
             System.out.println("게시글 삭제 중 에러 발생");
             e.printStackTrace();
         }
         return result;
+    }
+
+    public void close() {
+        dao.close();
     }
 }

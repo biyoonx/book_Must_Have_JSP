@@ -9,7 +9,7 @@ public class JSAlertFunc {
         String result = String.format("""
                 <script>
                     alert('%s');
-                    location.href = %s;
+                    location.href = '%s';
                 </script>
                 """, msg, url);
         try {

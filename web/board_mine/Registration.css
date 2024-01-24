@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+}
+
+h2 {
+    text-align: center;
+}
+
+.registrationForm,
+.editForm {
+    text-align: center;
+}
+.registrationForm table,
+.editForm table {
+    margin: auto;
+}
+.registrationForm th,
+.editForm th {
+    width: 5rem;
+}
+.registrationForm tr,
+.registrationForm td,
+.editForm tr,
+.editForm td {
+    padding: 0;
+}
+.registrationForm input:not(.registrationForm div input),
+.registrationForm textarea,
+.editForm input:not(.editForm div input){
+    margin: 0;
+    border: none;
+}
+.registrationForm table,
+.editForm table {
+    text-align: center;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.registrationForm th,
+.registrationForm td,
+.editForm th,
+.editForm td {
+    border-top: 1px dotted black;
+    border-bottom: 1px dotted black;
+    border-collapse: collapse;
+}
+.registrationForm tr:first-of-type td,
+.registrationForm tr:first-of-type td input,
+.editForm tr:first-of-type td,
+.editForm tr:first-of-type td input {
+    width: 30rem;
+    height: 2rem;
+}
+.registrationForm tr:last-of-type td,
+.registrationForm tr:last-of-type td textarea,
+.editForm tr:last-of-type td,
+.editForm tr:last-of-type td textarea {
+    width: 30rem;
+    height: 30rem;
+}
+.registrationForm textarea,
+.editForm textarea {
+    resize: none;
+    vertical-align: bottom;
+}
+.registrationForm div,
+.editForm div {
+    padding: 1rem;
+}

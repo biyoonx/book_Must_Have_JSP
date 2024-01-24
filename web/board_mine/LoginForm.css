@@ -1,5 +1,20 @@
+h2 {
+    text-align: center;
+}
+form {
+    width: fit-content;
+    margin: auto;
+}
+p {
+    text-align: center;
+}
+
 label:not([for=remember_id]) {
     display: inline-block;
     width: 5rem;
     white-space: nowrap;
+}
+form div:last-of-type {
+    text-align: center;
+    padding: 1rem;
 }

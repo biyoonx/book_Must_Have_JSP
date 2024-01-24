@@ -58,4 +58,8 @@ public class MemberService {
 
         return user;
     }
+
+    public void close() {
+        dao.close();
+    }
 }

@@ -35,6 +35,8 @@
         response.sendRedirect("LoginForm.jsp");
     } else {
         JSAlertFunc.alertBack("로그인 실패", out);
-        return;
     }
+
+    memberService.close();
+    return;
 %>
