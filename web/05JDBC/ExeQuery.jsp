@@ -38,7 +38,7 @@
             String name = rs.getString("name");
             Date regidate = rs.getDate("regidate");
 
-            out.println(String.format("%s %s %s %s<br>", id, pw, name, regidate));
+            out.println(String.format("%s %s %s %s<br />", id, pw, name, regidate));
         }
 
         // 연결 닫기

@@ -10,6 +10,7 @@
 <%@ page import="java.util.HashMap" %>
 <%@ page import="model1.board.BoardDTO" %>
 <%@ page import="model1.board.BoardDAO" %>
+<%@ page import="utils.BoardPage" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 
@@ -35,7 +36,7 @@
     int totalPage = (int)Math.ceil((double)totalCount / pageSize);
 
     // 현재 페이지 확인
-    int pageNum = 1;
+    int pageNum = 1; // 페이지 기본값
     String pageRequest = request.getParameter("pageNum");
     if (pageRequest != null && !pageRequest.isEmpty()) {
         pageNum = Integer.parseInt(pageRequest);
@@ -43,9 +44,11 @@
 
     // 목록에 출력할 게시물 범위 계산
     int start = (pageNum - 1) * pageSize + 1;
-    int end = pageNum * pageSize;
-    param.put("start", start);
-    param.put("end", end);
+//    int end = pageNum * pageSize;
+//    param.put("start", start);
+//    param.put("end", end);
+    param.put("start", start - 1);
+    param.put("pageSize", pageSize);
 
     List<BoardDTO> boardLists = dao.selectListPage(param);
     dao.close();
@@ -64,7 +67,7 @@
 </head>
 <body>
     <jsp:include page="../Common/Link.jsp" />
-    <h2>목록 보기(List)</h2>
+    <h2>목록 보기(List) - 현재 페이지 : <%= pageNum %> (전체 : <%= totalPage %>)</h2>
 
 <%--    검색폼--%>
     <form method="get">
@@ -104,8 +107,10 @@
         <%
             } else {
                 int virtualNum = 0;
+                int countNum = 0;
                 for (BoardDTO dto : boardLists) {
-                    virtualNum = totalCount--;
+//                    virtualNum = totalCount--;
+                    virtualNum = totalCount - (((pageNum - 1) * pageSize) + countNum++);
         %>
             <tr align="center">
                 <td>
@@ -132,7 +137,13 @@
 
 <%--    목록 하단의 [글쓰기] 버튼--%>
     <table border="1" width="90%">
-        <tr align="right">
+        <tr align="center">
+<%--            페이징 처리--%>
+            <td>
+                <%= BoardPage.pagingStr(totalCount, pageSize, blockPage, pageNum, request.getRequestURI()) %>
+            </td>
+
+<%--            글쓰기 버튼--%>
             <td>
                 <button type="button" onclick="location.href='Write.jsp';">글쓰기</button>
             </td>

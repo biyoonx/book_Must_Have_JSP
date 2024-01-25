@@ -36,7 +36,7 @@
     <%
         String mode = popupMode ? "on" : "off";
         for (int i = 0; i < 10; i++) {
-            out.println(String.format("현재 팝업창은 %s 상태 입니다.<br>", mode));
+            out.println(String.format("현재 팝업창은 %s 상태 입니다.<br />", mode));
         }
 
         if (popupMode) {

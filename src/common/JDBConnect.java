@@ -1,6 +1,7 @@
 package common;
 
 import jakarta.servlet.ServletContext;
+
 import java.sql.*;
 
 public class JDBConnect {

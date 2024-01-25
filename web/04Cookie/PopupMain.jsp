@@ -78,7 +78,7 @@
     <h2>팝업 메인 페이지</h2>
     <%
         for (int i = 1; i <= 10; i++) {
-            out.println(String.format("현재 팝업창은 %s 상태입니다.<br>", popupMode));
+            out.println(String.format("현재 팝업창은 %s 상태입니다.<br />", popupMode));
         }
         if (popupMode.equals("on")) {
     %>

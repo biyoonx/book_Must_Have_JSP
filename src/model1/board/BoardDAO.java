@@ -74,27 +74,35 @@ public class BoardDAO extends JDBConnect {
     public List<BoardDTO> selectListPage(Map<String, Object> map) {
         List<BoardDTO> bbs = new Vector<BoardDTO>();
 
-        String query = """
-                SELECT * FROM (
+/*        String query = """
+                SELECT num, title, content, postdate, id, visitcount FROM (
                     SELECT Tb.*, ROWNUM AS rNum FROM (
                         SELECT * FROM board
-                """;
+                """;*/
+        String query = "SELECT * FROM board";
 
         // 검색 조건 추가
         if (map.get("searchWord") != null) {
-            query += String.format(" WHERE %s LIKE '%%%s%%'", map.get("searchField"), map.get("searchWord"));
+//            query += String.format(" WHERE %s LIKE '%%%s%%'", map.get("searchField"), map.get("searchWord"));
+            query += String.format(" WHERE %s LIKE CONCAT('%%', '%s', '%%')", map.get("searchField"), map.get("searchWord"));
         }
 
-        query += """
+/*        query += """
                         ORDER BY num DESC
                     ) Tb
                 ) WHERE rNum BETWEEN ? AND ?
+                """;*/
+        query += """
+                    ORDER BY num DESC
+                LIMIT ? OFFSET ?
                 """;
 
         try {
             pstmt = conn.prepareStatement(query);
-            pstmt.setString(1, map.get("start").toString());
-            pstmt.setString(2, map.get("end").toString());
+//            pstmt.setString(1, map.get("start").toString());
+//            pstmt.setString(2, map.get("end").toString());
+            pstmt.setInt(1, (int)map.get("pageSize"));
+            pstmt.setInt(2, (int)map.get("start"));
 
             rs = pstmt.executeQuery();
 
