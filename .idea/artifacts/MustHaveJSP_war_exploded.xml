@@ -13,7 +13,6 @@
           <element id="library" level="project" name="glassfish.web.jakarta.servlet.jsp.jstl" />
         </element>
       </element>
-      <element id="library" level="project" name="Java EE 6-Java EE 6" />
       <element id="javaee-facet-resources" facet="MustHaveJSP/web/Web" />
     </root>
   </artifact>
