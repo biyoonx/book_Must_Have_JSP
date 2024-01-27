@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <title>MemberAuth.jsp</title>
-    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="../Common/common.css">
 </head>
 <body>
     <h2>MVC 패턴으로 회원인증하기</h2>

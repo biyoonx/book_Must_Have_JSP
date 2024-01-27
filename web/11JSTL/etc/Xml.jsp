@@ -15,6 +15,7 @@
 <head>
     <meta charset="UTF-8">
     <title>JSTL - xml</title>
+    <link rel="stylesheet" href="<%= "../../Common/common.css" %>" />
 </head>
 <body>
     <c:set var="booklist">

@@ -19,13 +19,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Session_mine</title>
+    <link rel="stylesheet" href="<%= "../Common/common.css" %>" />
     <style>
         .login_errMsg {
             color: red;
             font-size: 1.2em;
-        }
-        a {
-            color: blue;
         }
     </style>
 </head>

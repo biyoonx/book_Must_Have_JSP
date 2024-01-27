@@ -13,11 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <title>내장 객체 - request</title>
-    <style>
-        a {
-            color: blue;
-        }
-    </style>
+    <link rel="stylesheet" href="<%= "../Common/common.css" %>" />
 </head>
 <body>
     <h2>1.클라이언트와 서버의 환경정보 읽기</h2>

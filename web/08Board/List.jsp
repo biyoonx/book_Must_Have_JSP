@@ -36,11 +36,7 @@
 <head>
     <meta charset="UTF-8">
     <title>회원제 게시판</title>
-    <style>
-        a {
-            color: blue;
-        }
-    </style>
+    <link rel="stylesheet" href="<%= "../Common/common.css" %>" />
 </head>
 <body>
     <jsp:include page="../Common/Link.jsp" />

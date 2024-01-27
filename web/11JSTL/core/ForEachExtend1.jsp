@@ -14,6 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <title>JSTL - forEach 2</title>
+    <link rel="stylesheet" href="<%= "../../Common/common.css" %>" />
 </head>
 <body>
     <h4>향상된 for문 형태의 forEach 태그</h4>

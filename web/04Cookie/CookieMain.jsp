@@ -13,11 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Cookie</title>
-    <style>
-        a {
-            color: blue;
-        }
-    </style>
+    <link rel="stylesheet" href="<%= "../Common/common.css" %>" />
 </head>
 <body>
     <h2>1.쿠키(Cookie) 설정</h2>

@@ -116,4 +116,13 @@
         <servlet-name>MemberAuth</servlet-name>
         <url-pattern>/12Servlet/MemberAuth.mvc</url-pattern>
     </servlet-mapping>
+<!--    MVC 게시판-->
+    <servlet>
+        <servlet-name>MVCBoardList</servlet-name>
+        <servlet-class>model2.mvcboard.ListController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MVCBoardList</servlet-name>
+        <url-pattern>/14MVCBoard/mvcboard/list.do</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -1,0 +1,7 @@
+a {
+    color: blue;
+}
+
+table, tr, th, td {
+    border-collapse: collapse;
+}

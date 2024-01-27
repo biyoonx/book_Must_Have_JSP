@@ -20,6 +20,7 @@
 <head>
     <meta charset="UTF-8">
     <title>표현 언어(EL) - 메서드 호출</title>
+    <link rel="stylesheet" href="<%= "../Common/common.css" %>" />
 </head>
 <body>
     <h3>영역에 저장 후 메서드 호출하기</h3>

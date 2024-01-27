@@ -24,6 +24,7 @@
   <head>
     <meta charset="UTF-8">
     <title>회원제 게시판</title>
+    <link rel="stylesheet" href="<%= "../Common/common.css" %>" />
     <script defer type="module" src="deletePost.js"></script>
   </head>
   <body>

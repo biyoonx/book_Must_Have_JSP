@@ -14,6 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <title>JSTL - url</title>
+    <link rel="stylesheet" href="<%= "../../Common/common.css" %>" />
 </head>
 <body>
     <c:set var="pageVar" value="MustHave" scope="page" />
@@ -25,6 +26,6 @@
         <c:param name="user_param1" value="Must" />
         <c:param name="user_param2">Have</c:param>
     </c:url>
-    <a href="${ url }" style="color: blue;">OtherPage.jsp 바로가기</a>
+    <a href="${ url }">OtherPage.jsp 바로가기</a>
 </body>
 </html>

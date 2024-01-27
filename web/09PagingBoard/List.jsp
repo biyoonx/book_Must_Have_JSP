@@ -47,8 +47,8 @@
 //    int end = pageNum * pageSize;
 //    param.put("start", start);
 //    param.put("end", end);
-    param.put("start", start - 1);
     param.put("pageSize", pageSize);
+    param.put("start", start - 1);
 
     List<BoardDTO> boardLists = dao.selectListPage(param);
     dao.close();
@@ -59,11 +59,7 @@
 <head>
     <meta charset="UTF-8">
     <title>회원제 게시판</title>
-    <style>
-        a {
-            color: blue;
-        }
-    </style>
+    <link rel="stylesheet" href="<%= "../Common/common.css" %>" />
 </head>
 <body>
     <jsp:include page="../Common/Link.jsp" />

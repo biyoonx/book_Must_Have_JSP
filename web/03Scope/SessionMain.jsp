@@ -21,11 +21,7 @@
 <head>
     <meta charset="UTF-8">
     <title>session 영역</title>
-    <style>
-        a {
-            color: blue;
-        }
-    </style>
+    <link rel="stylesheet" href="<%= "../Common/common.css" %>" />
 </head>
 <body>
     <h2>페이지 이동 후 session 영역의 속성 읽기</h2>

@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <title>FrontController.jsp</title>
-    <link rel="stylesheet" href="common.css" />
+    <link rel="stylesheet" href="../Common/common.css" />
 </head>
 <body>
     <h3>한 번의 매핑으로 여러 가지 요청 처리하기</h3>

@@ -20,11 +20,7 @@
 <head>
     <meta charset="UTF-8">
     <title>page 영역</title>
-    <style>
-        a {
-            color: blue;
-        }
-    </style>
+    <link rel="stylesheet" href="<%= "../Common/common.css" %>" />
 </head>
 <body>
     <h2>page 영역의 속성값 읽기</h2>

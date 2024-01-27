@@ -13,6 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Session</title>
+    <link rel="stylesheet" href="<%= "../Common/common.css" %>" />
 </head>
 <body>
     <jsp:include page="../Common/Link.jsp" />
@@ -43,7 +44,7 @@
         } else { // 로그인(로그인된 아이디 있음)
     %>
     <%= session.getAttribute("UserName") %> 회원님, 로그인하셨습니다. <br />
-    <a href="Logout.jsp" style="color: blue">[로그아웃]</a>
+    <a href="Logout.jsp">[로그아웃]</a>
     <%
         }
     %>
