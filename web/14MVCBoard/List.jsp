@@ -14,7 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <title>파일 첨부형 게시판</title>
-    <link rel="stylesheet" href="<%= "../Common/common.css" %>" />
+    <link rel="stylesheet" href="<%= application.getContextPath() %>/Common/common.css" />
 </head>
 <body>
     <h2>파일 첨부형 게시판 - 목록 보기(List)</h2>
@@ -58,7 +58,7 @@
                             ${ map.totalCount - (((map.pageNum - 1) * map.pageSize) + loop.index)}
                         </td>
                         <td align="left">
-                            <a href="/14MVCBoard/mvcboard/view.do?idx=${ row.idx }">${ row.title }</a>
+                            <a href="<%= application.getContextPath() %>/14MVCBoard/mvcboard/view.do?idx=${ row.idx }">${ row.title }</a>
                         </td>
                         <td>
                             ${ row.name }
@@ -71,7 +71,7 @@
                         </td>
                         <td>
                             <c:if test="${ not empty row.ofile }">
-                                <a href="/14MVCBoard/mvcboard/download.do?ofile=${ row.ofile }&sfile=${ row.sfile }&idx=${ row.idx }">[다운로드]</a>
+                                <a href="<%= application.getContextPath() %>/14MVCBoard/mvcboard/download.do?ofile=${ row.ofile }&sfile=${ row.sfile }&idx=${ row.idx }">[다운로드]</a>
                             </c:if>
                         </td>
                     </tr>
@@ -87,7 +87,7 @@
                 ${ map.pagingImg }
             </td>
             <td width="100">
-                <button onclick="location.href='/14MVCBoard/mvcboard/write.do';">글쓰기</button>
+                <button onclick="location.href='<%= application.getContextPath() %>/14MVCBoard/mvcboard/write.do';">글쓰기</button>
             </td>
         </tr>
     </table>

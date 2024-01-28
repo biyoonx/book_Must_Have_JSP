@@ -44,7 +44,7 @@ public class MVCBoardDAO extends DBConnPool {
                     SELECT Tb.*, ROWNUM rNum FROM (
                         SELECT * FROM mvcboard
                 """;*/
-        String query = "SELECT * FROM mvcbaord";
+        String query = "SELECT * FROM mvcboard";
 
         if (map.get("searchWord") != null) {
             query += String.format(" WHERE %s LIKE '%%%s%%'", map.get("searchField"), map.get("searchWord"));
@@ -55,15 +55,15 @@ public class MVCBoardDAO extends DBConnPool {
                     ) Tb
                 ) WHERE rNum BETWEEN ? AND ?
                 """;*/
-        query += "LIMIT ? OFFSET ?";
+        query += " LIMIT ? OFFSET ?";
 
         try {
             pstmt = conn.prepareStatement(query);
 
-/*            pstmt.setString(1, map.get("start"));
-            pstmt.setString(2, map.get("end"));*/
-            pstmt.setString(1, map.get("pageSize").toString());
-            pstmt.setString(2, map.get("start").toString());
+/*            pstmt.setInt(1, (int)map.get("start"));
+            pstmt.setInt(2, (int)map.get("end"));*/
+            pstmt.setInt(1, (int)map.get("pageSize"));
+            pstmt.setInt(2, (int)map.get("start"));
 
             rs = pstmt.executeQuery();
 
@@ -89,5 +89,35 @@ public class MVCBoardDAO extends DBConnPool {
         }
 
         return board;
+    }
+
+    // 게시글 데이터를 받아 DB에 추가(파일 업로드 지원)
+    public int insertWrite(MVCBoardDTO dto) {
+        int result = 0;
+
+        try {
+            String query = """
+                    INSERT INTO mvcboard (
+                        idx, name, title, content, ofile, sfile, pass
+                    ) VALUES (
+                        NULL, ?, ?, ?, ?, ?, ?
+                    )
+                    """;
+
+            pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, dto.getName());
+            pstmt.setString(2, dto.getTitle());
+            pstmt.setString(3, dto.getContent());
+            pstmt.setString(4, dto.getOfile());
+            pstmt.setString(5, dto.getSfile());
+            pstmt.setString(6, dto.getPass());
+
+            result = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("게시물 입력 중 예외 발생");
+            e.printStackTrace();
+        }
+
+        return result;
     }
 }
