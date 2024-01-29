@@ -9,10 +9,6 @@
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
-<%
-    request.setAttribute("out", out);
-%>
-
 <!DOCTYPE html>
 <html>
 <head>

@@ -8,10 +8,6 @@ import java.util.Map;
 import java.util.Vector;
 
 public class MVCBoardDAO extends DBConnPool {
-    public MVCBoardDAO() {
-        super();
-    }
-
     // 검색 조건에 맞는 게시물의 개수 반환
     public int selectCount(Map<String, Object> map) {
         int totalCount = 0;
