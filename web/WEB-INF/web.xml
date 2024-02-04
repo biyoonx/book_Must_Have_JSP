@@ -154,4 +154,9 @@
     <listener>
         <listener-class>listener.ContextListener</listener-class>
     </listener>
+    
+    <context-param>
+        <param-name>CHAT_ADDR</param-name>
+        <param-value>ws://localhost:8080/MustHaveJSP_war_exploded/</param-value>
+    </context-param>
 </web-app>

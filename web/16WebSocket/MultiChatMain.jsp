@@ -23,7 +23,7 @@
                 return false;
             }
 
-            window.open(`ChatWindow.jsp?chatId=${id.value}`, '', 'width=320, height=400');
+            window.open(`ChatWindow.jsp?chatId=${ '${id.value}' }`, '', 'width=320, height=400');
             id.value = '';
         }
     </script>
