@@ -37,7 +37,7 @@ public class PassController extends HttpServlet {
                     dao.close();
                     HttpSession session = req.getSession();
                     session.setAttribute("pass", pass);
-                    resp.sendRedirect("/14MVCBoard/mvcboard/edit.do?idx=" + idx);
+                    resp.sendRedirect("../mvcboard/edit.do?idx=" + idx);
                     break;
                 case "delete":
                     MVCBoardDTO dto = dao.selectView(idx);
@@ -47,7 +47,7 @@ public class PassController extends HttpServlet {
                         String saveFileName = dto.getSfile();
                         FileUtil.deleteFile(req, "/Uploads", saveFileName);
                     }
-                    JSFunction.alertLocation(resp, "삭제되었습니다.", "/14MVCBoard/mvcboard/list.do");
+                    JSFunction.alertLocation(resp, "삭제되었습니다.", "../mvcboard/list.do");
                     break;
             }
         } else {

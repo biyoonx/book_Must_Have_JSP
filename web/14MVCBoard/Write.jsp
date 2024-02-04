@@ -36,7 +36,7 @@
 </head>
 <body>
     <h2>파일 첨부형 게시판 - 글쓰기(Write)</h2>
-    <form name="writeFrm" method="post" enctype="multipart/form-data" action="<%= application.getContextPath() %>/14MVCBoard/mvcboard/write.do" onsubmit="return validateForm(this);">
+    <form name="writeFrm" method="post" enctype="multipart/form-data" action="../mvcboard/write.do" onsubmit="return validateForm(this);">
         <table border="1" width="90%">
             <tr>
                 <td><label for="name">작성자</label></td>
@@ -62,7 +62,7 @@
                 <td colspan="2" align="center">
                     <button type="submit">작성 완료</button>
                     <button type="reset">RESET</button>
-                    <button type="button" onclick="location.href='<%= application.getContextPath() %>/14MVCBoard/mvcboard/list.do';">목록 바로가기</button>
+                    <button type="button" onclick="location.href='../mvcboard/list.do';">목록 바로가기</button>
                 </td>
             </tr>
         </table>

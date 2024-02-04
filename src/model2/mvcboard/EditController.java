@@ -88,9 +88,9 @@ public class EditController extends HttpServlet {
         // 결과 처리
         if (result == 1) {
             session.removeAttribute("pass");
-            resp.sendRedirect("/14MVCBoard/mvcboard/view.do?idx=" + idx);
+            resp.sendRedirect("../mvcboard/view.do?idx=" + idx);
         } else {
-            JSFunction.alertLocation(resp, "비밀번호 검증을 다시 진행해주세요.", "/14MVCBoard/mvcboard/view.do?idx=" + idx);
+            JSFunction.alertLocation(resp, "비밀번호 검증을 다시 진행해주세요.", "../mvcboard/view.do?idx=" + idx);
         }
     }
 }

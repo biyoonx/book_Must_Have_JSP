@@ -28,5 +28,7 @@
     <orderEntry type="library" name="glassfish.web.jakarta.servlet.jsp.jstl" level="project" />
     <orderEntry type="library" name="xalan" level="project" />
     <orderEntry type="library" name="jakarta.annotation.api" level="project" />
+    <orderEntry type="library" name="jakarta.websocket.client.api" level="project" />
+    <orderEntry type="library" name="jakarta.websocket.api" level="project" />
   </component>
 </module>

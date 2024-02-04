@@ -14,6 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <title>파일 첨부형 게시판</title>
+    <link rel="stylesheet" href="<%= application.getContextPath() %>/Common/common.css" />
     <script type="text/javascript">
         function validateForm(form) {
             if (!form.name.value) {
@@ -34,7 +35,7 @@
 </head>
 <body>
     <h2>파일 첨부형 게시판 - 수정하기(Edit)</h2>
-    <form name="writeFrm" method="post" enctype="multipart/form-data" action="<%= application.getContextPath() %>/14MVCBoard/mvcboard/edit.do" onsubmit="return validateForm(this);">
+    <form name="writeFrm" method="post" enctype="multipart/form-data" action="../mvcboard/edit.do" onsubmit="return validateForm(this);">
         <input type="hidden" name="idx" value="${ dto.idx }" />
         <input type="hidden" name="prevOfile" value="${ dto.ofile }" />
         <input type="hidden" name="prevSfile" value="${ dto.sfile }" />
@@ -54,13 +55,13 @@
             </tr>
             <tr>
                 <td>첨부 파일</td>
-                <td><input type="file" name="ofile" /></td>
+                <td><input type="file" name="attachedFile" /></td>
             </tr>
             <tr>
                 <td colspan="2" align="center">
                     <button type="submit">작성 완료</button>
                     <button type="reset">RESET</button>
-                    <button type="button" onclick="location.href='<%= application.getContextPath() %>/14MVCBoard/mvcboard/list.do';">목록 바로가기</button>
+                    <button type="button" onclick="location.href='../mvcboard/list.do';">목록 바로가기</button>
                 </td>
             </tr>
         </table>

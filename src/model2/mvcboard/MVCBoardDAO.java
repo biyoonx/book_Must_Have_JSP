@@ -51,7 +51,7 @@ public class MVCBoardDAO extends DBConnPool {
                     ) Tb
                 ) WHERE rNum BETWEEN ? AND ?
                 """;*/
-        query += " LIMIT ? OFFSET ?";
+        query += " ORDER BY idx DESC LIMIT ? OFFSET ?";
 
         try {
             pstmt = conn.prepareStatement(query);
@@ -206,6 +206,7 @@ public class MVCBoardDAO extends DBConnPool {
     // 지정한 일련번호의 게시물 삭제
     public int deletePost(long idx) {
         int result = 0;
+
         try {
             String query = "DELETE FROM mvcboard WHERE idx = ?";
 

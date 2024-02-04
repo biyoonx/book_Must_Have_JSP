@@ -50,7 +50,7 @@
                 ${ dto.content }
                 <c:if test="${ not empty dto.ofile and isImage == true }">
                     <br />
-                    <img src="<%= application.getContextPath() %>/Uploads/$${ dto.sfile }" style="max-width: 100%;" alt="${ dto.ofile }"/>
+                    <img src="<%= application.getContextPath() %>/Uploads/${ dto.sfile }" style="max-width: 100%;" alt="${ dto.ofile }"/>
                 </c:if>
             </td>
         </tr>
@@ -61,7 +61,7 @@
             <td>
                 <c:if test="${ not empty dto.ofile }">
                     ${ dto.ofile }
-                    <a href="<%= application.getContextPath() %>/14MVCBoard/mvcboard/download.do?ofile=${ dto.ofile }&sfile=${ dto.sfile }&idx=${ dto.idx }">[다운로드]</a>
+                    <a href="../mvcboard/download.do?ofile=${ dto.ofile }&sfile=${ dto.sfile }&idx=${ dto.idx }">[다운로드]</a>
                 </c:if>
             </td>
             <td>다운로드수</td>
@@ -71,9 +71,9 @@
 <%--        하단 메뉴(버튼)--%>
         <tr>
             <td colspan="4" align="center">
-                <button type="button" onclick="location.href='<%= application.getContextPath() %>/14MVCBoard/mvcboard/pass.do?mode=edit&idx=${ param.idx }';">수정하기</button>
-                <button type="button" onclick="location.href='<%= application.getContextPath() %>/14MVCBoard/mvcboard/pass.do?mode=delete&idx=${ param.idx }';">삭제하기</button>
-                <button type="button" onclick="location.href='<%= application.getContextPath() %>/14MVCBoard/mvcboard/list.do';">목록 바로가기</button>
+                <button type="button" onclick="location.href='../mvcboard/pass.do?mode=edit&idx=${ param.idx }';">수정하기</button>
+                <button type="button" onclick="location.href='../mvcboard/pass.do?mode=delete&idx=${ param.idx }';">삭제하기</button>
+                <button type="button" onclick="location.href='../mvcboard/list.do';">목록 바로가기</button>
             </td>
         </tr>
     </table>

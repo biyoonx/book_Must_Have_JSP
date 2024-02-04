@@ -5,8 +5,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model2.mvcboard.MVCBoardDAO;
-import model2.mvcboard.MVCBoardDTO;
 
 import java.io.IOException;
 import java.util.List;
@@ -27,7 +25,7 @@ public class ViewController extends HttpServlet {
 
         // 첨부 파일 확장자 추출 및 이미지 타입 확인
         String fileName = dto.getSfile();
-        String extension = (fileName != null) ? fileName.substring(fileName.lastIndexOf("." + 1)) : null;
+        String extension = (fileName != null) ? fileName.substring(fileName.lastIndexOf(".") + 1) : "";
         List<String> mimeList = List.of("png", "jpg", "gif");
         boolean isImage = mimeList.contains(extension);
 

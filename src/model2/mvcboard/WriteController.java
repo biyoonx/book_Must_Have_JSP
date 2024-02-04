@@ -28,7 +28,7 @@ public class WriteController extends HttpServlet {
             originalFileName = FileUtil.uploadFile(req, saveDirectory);
         } catch (Exception e) {
             // 파일 업로드 실패
-            JSFunction.alertLocation(resp, "파일 업로드 오류", "/14MVCBoard/mvcboard/write.do");
+            JSFunction.alertLocation(resp, "파일 업로드 오류", "../mvcboard/write.do");
             return;
         }
 
@@ -59,9 +59,9 @@ public class WriteController extends HttpServlet {
 
         // 결과에 따른 처리
         if (result == 1) {
-            resp.sendRedirect("/14MVCBoard/mvcboard/list.do");
+            resp.sendRedirect("../mvcboard/list.do");
         } else {
-            JSFunction.alertLocation(resp, "글쓰기에 실패했습니다", "/14MVCBoard/mvcboard/write.do");
+            JSFunction.alertLocation(resp, "글쓰기에 실패했습니다", "../mvcboard/write.do");
         }
     }
 }
