@@ -14,15 +14,16 @@
     <meta charset="UTF-8">
     <title>SMTP 이메일 전송</title>
     <link rel="stylesheet" href="<%= application.getContextPath() %>/Common/common.css" />
+    <script src="EmailInfoToHide.js"></script>
 </head>
 <body>
     <h2>이메일 전송하기</h2>
-    <form method="post" action="SendProcess.jsp">
+    <form method="post" action="SendProcess.jsp" name="EmailSendForm">
         <table border="1">
             <tr>
                 <td>
                     <label for="from">보내는 사람 : </label>
-                    <input type="text" name="from" id="from" />
+                    <input type="text" name="from" id="from" readonly />
                 </td>
             </tr>
             <tr>

@@ -28,7 +28,7 @@ public class NaverSMTP {
         this.auth = new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("", ""); // 네이버 아이디, 비밀번호
+                return new PasswordAuthentication(EmailInfoToHide.email, EmailInfoToHide.password); // 네이버 아이디, 비밀번호
             }
         };
     }

@@ -27,3 +27,8 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+
+### STMP ###
+/src/smtp/EmailInfoToHide.java
+/web/17EmailSend/EmailInfoToHide.js

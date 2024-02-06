@@ -1,10 +1,3 @@
-<%@ page import="java.util.Map" %>
-<%@ page import="java.util.HashMap" %>
-<%@ page import="java.io.BufferedReader" %>
-<%@ page import="java.io.File" %>
-<%@ page import="java.io.FileReader" %>
-<%@ page import="smtp.NaverSMTP" %>
-<%@ page import="jakarta.mail.MessagingException" %>
 <%--
   Created by IntelliJ IDEA.
   User: biyoonx
@@ -12,6 +5,12 @@
   Time: 오후 11:23
 --%>
 
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.io.BufferedReader" %>
+<%@ page import="java.io.FileReader" %>
+<%@ page import="smtp.NaverSMTP" %>
+<%@ page import="jakarta.mail.MessagingException" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 

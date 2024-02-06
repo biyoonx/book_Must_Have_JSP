@@ -20,7 +20,7 @@
     <table border="1">
         <tr>
             <td width="50">내용</td>
-            <td>__CONTENT__</td><%-- 실제 메일 내용으로 대체 --%>
+            <td>__CONTENT__</td><%-- 실제 메일 내용으로 대체할 영역 --%>
         </tr>
         <tr>
             <td>이미지</td>
