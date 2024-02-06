@@ -10,7 +10,8 @@
 <%@ page import="java.io.BufferedReader" %>
 <%@ page import="java.io.FileReader" %>
 <%@ page import="smtp.NaverSMTP" %>
-<%@ page import="jakarta.mail.MessagingException" %>
+<%@ page import="javax.mail.MessagingException" %>
+<%--<%@ page import="jakarta.mail.MessagingException" %>--%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 

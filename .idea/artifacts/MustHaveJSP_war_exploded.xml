@@ -11,6 +11,12 @@
           <element id="library" level="project" name="projectlombok.lombok" />
           <element id="library" level="project" name="mysql.connector.j" />
           <element id="library" level="project" name="glassfish.web.jakarta.servlet.jsp.jstl" />
+          <element id="library" level="project" name="jakarta.websocket.api" />
+          <element id="library" level="project" name="jakarta.websocket.client.api" />
+          <element id="library" level="project" name="jakarta.annotation.api" />
+          <element id="library" level="project" name="xalan" />
+          <element id="library" level="project" name="javax.activation" />
+          <element id="library" level="project" name="sun.mail.javax" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="MustHaveJSP/web/Web" />

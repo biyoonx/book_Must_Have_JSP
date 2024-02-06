@@ -43,7 +43,7 @@
                     형식 :
                     <input type="radio" name="format" value="text" id="text" checked />
                     <label for="text">Text</label>
-                    <input type="radio" name="format" value="html" id="html" checked />
+                    <input type="radio" name="format" value="html" id="html" />
                     <label for="html">HTML</label>
                 </td>
             </tr>
