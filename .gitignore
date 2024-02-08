@@ -32,3 +32,6 @@ bin/
 ### STMP ###
 /src/smtp/EmailInfoToHide.java
 /web/17EmailSend/EmailInfoToHide.js
+
+### Search API ###
+/src/api/NaverClientInfoToHide.java

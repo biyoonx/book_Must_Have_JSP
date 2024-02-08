@@ -1,9 +1,5 @@
 package smtp;
 
-//import jakarta.mail.*;
-//import jakarta.mail.internet.InternetAddress;
-//import jakarta.mail.internet.MimeMessage;
-
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -31,7 +27,7 @@ public class NaverSMTP {
         this.auth = new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(EmailInfoToHide.email, EmailInfoToHide.password); // 네이버 아이디, 비밀번호
+                return new PasswordAuthentication(EmailInfoToHide.emailId, EmailInfoToHide.password); // 네이버 아이디, 비밀번호
             }
         };
     }

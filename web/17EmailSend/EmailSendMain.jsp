@@ -23,6 +23,7 @@
             <tr>
                 <td>
                     <label for="from">보내는 사람 : </label>
+                    <!-- 외부 js로 input#from에 해당하는 value 바로 삽입 -->
                     <input type="text" name="from" id="from" readonly />
                 </td>
             </tr>
