@@ -1,6 +1,6 @@
 package api;
 
 public class NaverClientInfoToHide {
-    private static final String clientId = "";
-    private static final String clientSecret = "";
+    static final String clientId = "";
+    static final String clientSecret = "";
 }

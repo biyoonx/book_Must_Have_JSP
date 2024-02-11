@@ -11,6 +11,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,31 +21,33 @@ public class SearchAPI extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String clientId = "YOUR_CLIENT_ID"; //애플리케이션 클라이언트 아이디
-        String clientSecret = "YOUR_CLIENT_SECRET"; //애플리케이션 클라이언트 시크릿
+        // 1.인증 정보 설정
+        String clientId = NaverClientInfoToHide.clientId; //애플리케이션 클라이언트 아이디
+        String clientSecret = NaverClientInfoToHide.clientSecret; //애플리케이션 클라이언트 시크릿
 
+        // 2.검색 조건 설정
+        int startNum = 0; // 검색 시작 위치
+        String text = null; // 검색어
+        startNum = Integer.parseInt(req.getParameter("startNum"));
+        String searchText = req.getParameter("keyword");
+        text = URLEncoder.encode(searchText, StandardCharsets.UTF_8);
 
-        String text = null;
-        try {
-            text = URLEncoder.encode("그린팩토리", "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException("검색어 인코딩 실패",e);
-        }
-
-
-        String apiURL = "https://openapi.naver.com/v1/search/blog?query=" + text;    // JSON 결과
+        // 3.API URL 조합
+        String apiURL = String.format("https://openapi.naver.com/v1/search/blog?query=%s&display=10&start=%d", text, startNum);    // JSON 결과
         //String apiURL = "https://openapi.naver.com/v1/search/blog.xml?query="+ text; // XML 결과
 
-
+        // 4.API 호출
         Map<String, String> requestHeaders = new HashMap<>();
         requestHeaders.put("X-Naver-Client-Id", clientId);
         requestHeaders.put("X-Naver-Client-Secret", clientSecret);
         String responseBody = get(apiURL,requestHeaders);
 
+        // 5.결과 출력
+        System.out.println(responseBody); // 콘솔에 출력
 
-        System.out.println(responseBody);
+        resp.setContentType("text/html; charset=utf-8");
+        resp.getWriter().write(responseBody); // 서블릿에서 즉시 출력
     }
-
 
     private static String get(String apiUrl, Map<String, String> requestHeaders){
         HttpURLConnection con = connect(apiUrl);
@@ -68,7 +71,6 @@ public class SearchAPI extends HttpServlet {
         }
     }
 
-
     private static HttpURLConnection connect(String apiUrl){
         try {
             URL url = new URL(apiUrl);
@@ -79,7 +81,6 @@ public class SearchAPI extends HttpServlet {
             throw new RuntimeException("연결이 실패했습니다. : " + apiUrl, e);
         }
     }
-
 
     private static String readBody(InputStream body){
         InputStreamReader streamReader = new InputStreamReader(body);
